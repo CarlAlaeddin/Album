@@ -25,6 +25,6 @@ require_once 'FrontendRouteGroups/FrontendRoute.php';
 /**
  *__________________________Backend Route
  */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 
 
