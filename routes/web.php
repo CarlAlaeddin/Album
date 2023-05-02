@@ -14,10 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
+/**
+ *__________________________Frontend Route
+ */
 Auth::routes();
 
+require_once 'FrontendRouteGroups/FrontendRoute.php';
+
+
+/**
+ *__________________________Backend Route
+ */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
