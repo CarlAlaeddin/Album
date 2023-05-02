@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property mixed $description
+ * @property int|mixed $is_status
+ * @property mixed $id
+ * @property mixed|string $image
+ */
 class Album extends Model
 {
     use HasFactory;

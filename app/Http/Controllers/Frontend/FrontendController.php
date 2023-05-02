@@ -7,7 +7,6 @@ use App\Models\Album;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
