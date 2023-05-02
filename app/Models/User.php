@@ -47,8 +47,8 @@ class User extends Authenticatable
     /**
      * @return BelongsTo
      */
-    public function user(): BelongsTo
+    public function albums(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Album::class);
     }
 }

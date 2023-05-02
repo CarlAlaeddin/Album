@@ -8,6 +8,12 @@
                 </div>
                 <div class="col-md-8">
                     <p>{{ $album->description }}</p>
+                    <div>
+                        <form action="{{ route('album.destroy',$album->id) }}" method="POST">
+                            @csrf
+                            <button class="btn btn-md btn-danger">Danger</button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,7 +15,7 @@
                 @foreach($albums as $album)
                     <div class="col">
                         <div class="card shadow-sm rounded">
-                            <img class="img-fluid" src="{{ $album->image }}" alt="{{ \Illuminate\Support\Str::limit($album->description,20) }}">
+                            <img class="img-fluid" src="{{ asset('/images/album'.'/'.$album->image) }}" alt="{{ \Illuminate\Support\Str::limit($album->description,20) }}">
                             <div class="card-body">
                                 <p class="card-text">{{ \Illuminate\Support\Str::limit($album->description) }}</p>
                                 <div class="d-flex justify-content-between align-items-center">

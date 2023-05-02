@@ -31,10 +31,22 @@ class AlbumController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     * @param StoreAlbumRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreAlbumRequest $request)
+    public function store(StoreAlbumRequest $request): RedirectResponse
     {
-        //
+        $albumImage = time() . 'album' . '.' . $request->file('image')->getClientOriginalExtension();
+        $request->image->move('images/album', $albumImage);
+
+        $album = new Album([
+            'user_id'       =>      auth()->user()->id,
+            'description'   =>      $request->get('description'),
+            'image'         =>      $albumImage
+        ]);
+
+        $album->save();
+        return redirect()->back();
     }
 
     /**
@@ -68,21 +80,24 @@ class AlbumController extends Controller
         if (is_null($request->file('image'))) {
             $album->description = $request->get('description');
         } else {
-            $fileName = 'images/album/'.$album->image;
+            $fileName = 'images/album/' . $album->image;
             unlink($fileName);
             $albumImage = time() . 'album' . '.' . $request->file('image')->getClientOriginalExtension();
             $request->image->move('images/album', $albumImage);
             $album->image = $albumImage;
         }
         $album->update();
-        return redirect()->route('album.show',$album->id);
+        return redirect()->route('album.show', $album->id);
     }
 
     /**
      * Remove the specified resource from storage.
+     * @param Album $album
+     * @return RedirectResponse
      */
-    public function destroy(Album $album)
+    public function destroy(Album $album): RedirectResponse
     {
-        //
+        $album->delete();
+        return redirect()->route('index');
     }
 }

@@ -27,9 +27,9 @@ class Album extends Model
     /**
      * @return HasMany
      */
-    public function albums(): HasMany
+    public function user(): HasMany
     {
-        return $this->hasMany(Album::class);
+        return $this->hasMany(User::class);
     }
 
 }
