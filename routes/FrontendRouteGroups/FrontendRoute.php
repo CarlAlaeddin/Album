@@ -15,4 +15,5 @@ Route::prefix('/')->controller(FrontendController::class)->group(function (){
 Route::prefix('/album')->controller(AlbumController::class)->name('album.')->group(function (){
     Route::get('/edit/{album}','edit')->name('edit');
     Route::get('/show/{album}','show')->name('show');
+    Route::post('/update/{album}','update')->name('update');
 });
