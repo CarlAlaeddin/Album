@@ -20,6 +20,10 @@
                                 <form action="{{ route('album.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="my-2">
+                                        <label for="title">title</label>
+                                        <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
+                                    </div>
+                                    <div class="my-2">
                                         <label for="description">description</label>
                                         <textarea name="description" id="description" cols="30" rows="5" class="form-control">{{ old('description') }}</textarea>
                                     </div>
@@ -28,7 +32,7 @@
                                         <input type="file" name="image" id="image" class="form-control">
                                     </div>
                                     <div class="my-3">
-                                        <button class="btn btn-md btn-outline-dark">Submit</button>
+                                        <button class="btn btn-md btn-outline-primary">Submit</button>
                                     </div>
                                 </form>
                             </div>
