@@ -7,6 +7,7 @@ use App\Models\Album;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Cache;
 
 class FrontendController extends Controller
 {
@@ -15,11 +16,14 @@ class FrontendController extends Controller
      */
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
+        Cache::remember('albums',60, function (){
+            return Album::query()
+                ->orderBy('created_at', 'desc')
+                ->where('is_status', 'LIKE', 1)
+                ->paginate(12);
+        });
 
-        $albums = Album::query()
-            ->orderBy('created_at', 'desc')
-            ->where('is_status', 'LIKE', 1)
-            ->paginate(12);
+        $albums = Cache::get('albums');
 
         return view(
             'Frontend.index',
@@ -28,4 +32,6 @@ class FrontendController extends Controller
             ])
         );
     }
+
+
 }
