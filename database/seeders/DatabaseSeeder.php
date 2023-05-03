@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
          ]);
 
         #_____________________________________ Album Factory
-        Album::factory(100)->create();
+        Album::factory(1)->create();
     }
 }

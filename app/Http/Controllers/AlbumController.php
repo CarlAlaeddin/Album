@@ -40,13 +40,23 @@ class AlbumController extends Controller
         $albumImage = time() . 'album' . '.' . $request->file('image')->getClientOriginalExtension();
         $request->image->move('images/album', $albumImage);
 
-        $album = new Album([
-            'user_id' => auth()->user()->id,
-            'title' => $request->get('title'),
-            'description' => $request->get('description'),
-            'image' => $albumImage,
-            'status' => $request->get('status')
-        ]);
+        if (auth()->check() && auth()->user()->role == 1)
+        {
+            $album = new Album([
+                'user_id' => auth()->user()->id,
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'image' => $albumImage,
+                'is_status' => $request->get('is_status')
+            ]);
+        }else{
+            $album = new Album([
+                'user_id' => auth()->user()->id,
+                'title' => $request->get('title'),
+                'description' => $request->get('description'),
+                'image' => $albumImage,
+            ]);
+        }
 
         $album->save();
         return redirect()->route('index');
@@ -91,6 +101,12 @@ class AlbumController extends Controller
         $album->description = $request->get('description');
         $album->slug = null;
         $album->title = $request->get('title');
+
+        if (auth()->check() && auth()->user()->role == 1)
+        {
+            $album->is_status = $request->get('is_status');
+        }
+
 
         $album->update();
         return redirect()->route('album.show', $album->slug);

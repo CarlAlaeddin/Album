@@ -26,6 +26,7 @@
                             <option value="1">Active</option>
                         </select>
                     </div>
+                    @endif
                     <button class="btn btn-md btn-primary">Create</button>
                 </form>
             </div>
