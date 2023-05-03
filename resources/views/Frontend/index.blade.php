@@ -11,6 +11,15 @@
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
 
+            @if(session()->has('message'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            {{ session()->get('message') }}
+                        </div>
+                    </div>
+                </div>
+            @endif
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach($albums as $album)
                     <div class="col">

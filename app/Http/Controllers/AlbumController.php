@@ -58,6 +58,9 @@ class AlbumController extends Controller
             ]);
         }
 
+//        sessions
+        session()->flash('message','New photo added to album');
+
         $album->save();
         return redirect()->route('index');
     }
@@ -108,6 +111,9 @@ class AlbumController extends Controller
         }
 
 
+//        sessions
+        session()->flash('message','Your memory has been edited correctly');
+
         $album->update();
         return redirect()->route('album.show', $album->slug);
     }
@@ -119,6 +125,8 @@ class AlbumController extends Controller
      */
     public function destroy(Album $album): RedirectResponse
     {
+//        sessions
+        session()->flash('message','Your memory has been deleted correctly');
         $album->delete();
         return redirect()->route('index');
     }

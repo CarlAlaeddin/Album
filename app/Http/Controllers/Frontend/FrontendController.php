@@ -15,6 +15,7 @@ class FrontendController extends Controller
      */
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
+
         $albums = Album::query()
             ->orderBy('created_at', 'desc')
             ->where('is_status', 'LIKE', 1)
@@ -23,7 +24,7 @@ class FrontendController extends Controller
         return view(
             'Frontend.index',
             compact([
-                'albums'
+                'albums',
             ])
         );
     }

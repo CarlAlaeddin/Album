@@ -2,6 +2,15 @@
 @section('content')
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
+            @if(session()->has('message'))
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert">
+                            {{ session()->get('message') }}
+                        </div>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-4">
                     <img src="{{ asset('/images/album/').'/'.$album->image }}" alt="" width="400" height="400">
