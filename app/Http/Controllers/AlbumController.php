@@ -12,14 +12,7 @@ use Illuminate\Http\RedirectResponse;
 
 class AlbumController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
-     */
-    public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
-    {
-        return view('Frontend.pages.album.show');
-    }
+
 
     /**
      * Show the form for creating a new resource.
