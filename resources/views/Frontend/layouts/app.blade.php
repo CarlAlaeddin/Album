@@ -170,6 +170,12 @@
                         <li><a href="#" class="text-white">Email me</a></li>
                         @auth
                             <li><a href="{{ route('home') }}" class="text-white">Dashboard</a></li>
+                            <li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-link text-light p-0">Logout</button>
+                                </form>
+                            </li>
                         @endauth
                         @guest
                             <li><a href="{{ route('register') }}" class="text-white">Register</a></li>

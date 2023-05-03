@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 /**
  *__________________________Frontend Route
  */
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 require_once 'FrontendRouteGroups/FrontendRoute.php';
 
@@ -26,6 +26,6 @@ require_once 'FrontendRouteGroups/FrontendRoute.php';
 /**
  *__________________________Backend Route
  */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
 
-Route::post('/album-store',[AlbumController::class,'store'])->name('album.store');
+Route::post('/album-store',[AlbumController::class,'store'])->middleware('verified')->name('album.store');

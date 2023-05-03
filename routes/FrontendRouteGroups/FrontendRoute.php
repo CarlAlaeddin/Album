@@ -10,7 +10,11 @@ Route::prefix('/')->controller(FrontendController::class)->group(function () {
 });
 
 
-Route::prefix('/album')->controller(AlbumController::class)->middleware('auth')->name('album.')->group(function () {
+Route::prefix('/album')
+    ->controller(AlbumController::class)
+    ->middleware(['auth','verified'])
+    ->name('album.')
+    ->group(function () {
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');
     Route::get('/edit/{album}', 'edit')->name('edit');
