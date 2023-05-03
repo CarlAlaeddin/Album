@@ -19,6 +19,8 @@ class AlbumFactory extends Factory
     #[ArrayShape([
             'user_id'       =>          "\Illuminate\Support\HigherOrderCollectionProxy|mixed",
             'image'         =>          "string",
+            'title'         =>          "string",
+            'slug'         =>           "string",
             'description'   =>          "string",
             'is_status'     =>          "int"
         ]
@@ -28,6 +30,8 @@ class AlbumFactory extends Factory
         return [
             'user_id'       =>          User::all()->random()->id,
             'image'         =>          $this->faker->imageUrl,
+            'title'         =>          $this->faker->title,
+            'slug'         =>           $this->faker->slug,
             'description'   =>          $this->faker->realText,
             'is_status'     =>          $this->faker->numberBetween(0, 1),
         ];

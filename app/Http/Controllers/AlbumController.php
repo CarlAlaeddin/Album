@@ -23,10 +23,11 @@ class AlbumController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
      */
-    public function create()
+    public function create(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        //
+        return view('Backend.pages.album.create');
     }
 
     /**
@@ -40,13 +41,15 @@ class AlbumController extends Controller
         $request->image->move('images/album', $albumImage);
 
         $album = new Album([
-            'user_id'       =>      auth()->user()->id,
-            'description'   =>      $request->get('description'),
-            'image'         =>      $albumImage
+            'user_id' => auth()->user()->id,
+            'title' => $request->get('title'),
+            'description' => $request->get('description'),
+            'image' => $albumImage,
+            'status' => $request->get('status')
         ]);
 
         $album->save();
-        return redirect()->back();
+        return redirect()->route('index');
     }
 
     /**
@@ -77,17 +80,20 @@ class AlbumController extends Controller
      */
     public function update(UpdateAlbumRequest $request, Album $album): RedirectResponse
     {
-        if (is_null($request->file('image'))) {
-            $album->description = $request->get('description');
-        } else {
+        if (!is_null($request->file('image'))) {
             $fileName = 'images/album/' . $album->image;
             unlink($fileName);
             $albumImage = time() . 'album' . '.' . $request->file('image')->getClientOriginalExtension();
             $request->image->move('images/album', $albumImage);
             $album->image = $albumImage;
         }
+
+        $album->description = $request->get('description');
+        $album->slug = null;
+        $album->title = $request->get('title');
+
         $album->update();
-        return redirect()->route('album.show', $album->id);
+        return redirect()->route('album.show', $album->slug);
     }
 
     /**
