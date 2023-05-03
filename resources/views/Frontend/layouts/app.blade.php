@@ -165,9 +165,7 @@
                 <div class="col-sm-4 offset-md-1 py-4">
                     <h4>Contact</h4>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
+                        <li><a href="mailto:{{ env('EMAIL_SUPPORT') }}" class="text-white">Support Email</a></li>
                         @auth
                             <li><a href="{{ route('home') }}" class="text-white">Dashboard</a></li>
                             <li>

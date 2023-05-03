@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Gate;
 
 class FrontendController extends Controller
 {
@@ -19,7 +20,10 @@ class FrontendController extends Controller
         Cache::remember('albums',60, function (){
             return Album::query()
                 ->orderBy('created_at', 'desc')
-                ->where('is_status', 'LIKE', 1)
+                ->where([
+                    ['is_status', 'LIKE', 1],
+                    ['user_id','LIKE',auth()->user()->id]
+                ])
                 ->paginate(12);
         });
 

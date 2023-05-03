@@ -22,11 +22,11 @@
                     <div class="my-3">
                         <label for="status">is status</label>
                         <select name="status" id="status" class="form-control form-selete">
+                            <option selected disabled>Selete Status</option>
                             <option value="0">DeActive</option>
                             <option value="1">Active</option>
                         </select>
                     </div>
-                    @endif
                     <button class="btn btn-md btn-primary">Create</button>
                 </form>
             </div>

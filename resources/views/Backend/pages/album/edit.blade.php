@@ -19,15 +19,14 @@
                         <label for="image">image</label>
                         <input type="file" name="image" id="image" class="form-control">
                     </div>
-                    @if(auth()->check() && auth()->user()->role == 1)
                         <div class="my-3">
                             <label for="is_status">is status</label>
                             <select name="is_status" id="is_status" class="form-control form-selete">
+                                <option selected disabled>Selete Status</option>
                                 <option value="0">DeActive</option>
                                 <option value="1">Active</option>
                             </select>
                         </div>
-                    @endif
                     <button class="btn btn-md btn-primary">Edit</button>
                 </form>
             </div>

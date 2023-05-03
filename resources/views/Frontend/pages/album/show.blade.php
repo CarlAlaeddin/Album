@@ -17,14 +17,12 @@
                 </div>
                 <div class="col-md-8">
                     <p>{{ $album->description }}</p>
-                    @if(auth()->check() && auth()->user()->role == 1)
                     <div>
                         <form action="{{ route('album.destroy',$album->slug) }}" method="POST">
                             @csrf
-                            <button class="btn btn-md btn-danger">Danger</button>
+                            <button class="btn btn-md btn-danger" onclick="return confirm('Warning: If this post is deleted, it will not be returned')">Delete This Post</button>
                         </form>
                     </div>
-                    @endif
                 </div>
             </div>
         </div>
