@@ -9,11 +9,28 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 
 class AlbumController extends Controller
 {
 
+    /**
+     * @return Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+     */
+    public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
+    {
+        $albums = Cache::remember('album', 60, function () {
+            return Album::query()->orderBy('created_at', 'desc')
+                ->where([
+                    ['user_id', 'LIKE', auth()->user()->id]
+                ])->paginate(12);
+        });
+
+        $albums  = Cache::get('album');
+
+        return view('Backend.pages.album.index',compact('albums'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -34,8 +51,7 @@ class AlbumController extends Controller
         $albumImage = time() . 'album' . '.' . $request->file('image')->getClientOriginalExtension();
         $request->image->move('images/album', $albumImage);
 
-        if (auth()->check() && auth()->user()->role == 1)
-        {
+        if (auth()->check() && auth()->user()->role == 1) {
             $album = new Album([
                 'user_id' => auth()->user()->id,
                 'title' => $request->get('title'),
@@ -43,7 +59,7 @@ class AlbumController extends Controller
                 'image' => $albumImage,
                 'is_status' => $request->get('is_status')
             ]);
-        }else{
+        } else {
             $album = new Album([
                 'user_id' => auth()->user()->id,
                 'title' => $request->get('title'),
@@ -53,7 +69,7 @@ class AlbumController extends Controller
         }
 
 //        sessions
-        session()->flash('message','New photo added to album');
+        session()->flash('message', 'New photo added to album');
 
         $album->save();
         return redirect()->route('index');
@@ -66,14 +82,13 @@ class AlbumController extends Controller
      */
     public function show(Album $album): Application|View|Factory|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
-        $allow =  Gate::allows('acces-posts', $album);
+        $allow = Gate::allows('acces-posts', $album);
 
-        if ($allow){
+        if ($allow) {
             return view('Frontend.pages.album.show', compact('album'));
-        }else{
-            return redirect()->back()->with('message','You do not have the right to do this');
+        } else {
+            return redirect()->back()->with('message', 'You do not have the right to do this');
         }
-
     }
 
     /**
@@ -83,12 +98,12 @@ class AlbumController extends Controller
      */
     public function edit(Album $album): Application|View|Factory|RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
-        $allow =  Gate::allows('acces-posts', $album);
+        $allow = Gate::allows('acces-posts', $album);
 
-        if ($allow){
+        if ($allow) {
             return view('Backend.pages.album.edit', compact('album'));
-        }else{
-            return redirect()->back()->with('message','You do not have the right to do this');
+        } else {
+            return redirect()->back()->with('message', 'You do not have the right to do this');
         }
     }
 
@@ -101,8 +116,8 @@ class AlbumController extends Controller
     public function update(UpdateAlbumRequest $request, Album $album): RedirectResponse
     {
         $allow = Gate::allows('acces-posts', $album);
-        
-        if ($allow){
+
+        if ($allow) {
             if (!is_null($request->file('image'))) {
                 $fileName = 'images/album/' . $album->image;
                 unlink($fileName);
@@ -120,7 +135,7 @@ class AlbumController extends Controller
             }
 
 
-    //        sessions
+            //        sessions
             session()->flash('message', 'Your memory has been edited correctly');
 
             $album->update();
@@ -136,9 +151,9 @@ class AlbumController extends Controller
     public function destroy(Album $album): RedirectResponse
     {
         $allow = Gate::allows('acces-posts', $album);
-        if ($allow){
+        if ($allow) {
 //        sessions
-            session()->flash('message','Your memory has been deleted correctly');
+            session()->flash('message', 'Your memory has been deleted correctly');
             $album->delete();
             return redirect()->route('index');
         }

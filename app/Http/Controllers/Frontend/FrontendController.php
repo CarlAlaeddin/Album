@@ -17,24 +17,8 @@ class FrontendController extends Controller
      */
     public function index(): Factory|Application|View|\Illuminate\Contracts\Foundation\Application
     {
-        Cache::remember('albums',60, function (){
-            return Album::query()
-                ->orderBy('created_at', 'desc')
-                ->where([
-                    ['is_status', 'LIKE', 1],
-                    ['user_id','LIKE',auth()->user()->id]
-                ])
-                ->paginate(12);
-        });
-
-        $albums = Cache::get('albums');
-
-        return view(
-            'Frontend.index',
-            compact([
-                'albums',
-            ])
-        );
+        session()->flash('message','You must login for see photos');
+        return view('Frontend.index');
     }
 
 

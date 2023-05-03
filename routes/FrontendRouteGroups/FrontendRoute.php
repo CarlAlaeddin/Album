@@ -15,6 +15,7 @@ Route::prefix('/album')
     ->middleware(['auth','verified'])
     ->name('album.')
     ->group(function () {
+    Route::get('/', 'index')->name('index');
     Route::get('/create', 'create')->name('create');
     Route::post('/store', 'store')->name('store');
     Route::get('/edit/{album}', 'edit')->name('edit');
