@@ -1,31 +1,10 @@
 <?php
 
-use App\Http\Controllers\AlbumController;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 /**
- *__________________________Frontend Route
+ *
+ * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ +                                                                                       +
+ + User's Admin Roots، and User Sections are separated and placed in their own folders   +
+ +                                                                                      +
+ * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  */
-Auth::routes(['verify' => true]);
-
-require_once 'FrontendRouteGroups/FrontendRoute.php';
-
-
-/**
- *__________________________Backend Route
- */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->middleware('verified')->name('home');
-
-Route::post('/album-store',[AlbumController::class,'store'])->middleware('verified')->name('album.store');
