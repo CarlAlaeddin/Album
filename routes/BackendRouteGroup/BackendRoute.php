@@ -14,7 +14,7 @@ Auth::routes(['verify' => true]);
 Route::prefix('/')->middleware('verified')->group(function (){
 
     #_______________________________________ Home
-    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->name('home');
+    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->middleware('check.role.user')->name('home');
 
     #_______________________________________ Album Store
     Route::post('/album-store',[AlbumController::class,'store'])->name('album.store');
