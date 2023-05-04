@@ -4,7 +4,7 @@
  *
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  +                                                                                       +
- + User's Admin Roots، and User Sections are separated and placed in their own folders   +
+ + User's Panel Roots، and User Sections are separated and placed in their own folders   +
  +                                                                                      +
  * +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  */
