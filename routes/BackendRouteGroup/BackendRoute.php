@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\AlbumController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -11,12 +12,22 @@ Auth::routes(['verify' => true]);
 
 
 //______ set middleware verified account
-Route::prefix('/')->middleware('verified')->group(function (){
+Route::prefix('/')
+    ->middleware(['auth', 'verified'])
+    ->group(function () {
+        #_______________________________________ Home
+        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
+            ->name('home');
 
-    #_______________________________________ Home
-    Route::get('/home', [App\Http\Controllers\HomeController::class,'index'])->middleware('check.role.user')->name('home');
+        #_______________________________________ Album Store
+        Route::post('/album-store', [AlbumController::class, 'store'])
+            ->name('album.store');
 
-    #_______________________________________ Album Store
-    Route::post('/album-store',[AlbumController::class,'store'])->name('album.store');
 
-});
+        Route::prefix('/admin-panel')
+            ->controller(AdminController::class)
+            ->name('admin-panel.')
+            ->group(function () {
+                Route::get('/', 'index')->name('index');
+            });
+    });
