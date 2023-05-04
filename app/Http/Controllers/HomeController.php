@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class HomeController extends Controller
 {
@@ -19,10 +22,19 @@ class HomeController extends Controller
     /**
      * Show the application dashboard.
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return Application|Factory|View|\Illuminate\Foundation\Application|RedirectResponse
      */
-    public function index()
+    public function index(): \Illuminate\Foundation\Application|View|Factory|RedirectResponse|Application
     {
-        return view('home');
+        if (auth()->check()) {
+            switch (auth()->user()->role) {
+                case 2:
+                case 1 :
+                    $message = auth()->user()->name . "welcome to admin panel";
+                    return redirect()->route('admin-panel.index')->with('message', $message);
+                case 3 :
+                    return view('home');
+            }
+        }
     }
 }
