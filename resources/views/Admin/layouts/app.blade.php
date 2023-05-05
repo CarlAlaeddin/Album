@@ -53,7 +53,7 @@
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-brand">
-                    <a href="index.html" class="logo">
+                    <a href="/" class="logo">
                         <!-- Logo icon -->
                         <b class="logo-icon">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -347,31 +347,25 @@
                 <ul id="sidebarnav">
                     <li class="nav-small-cap">
                         <i class="mdi mdi-dots-horizontal"></i>
-                        <span class="hide-menu">Personal</span>
+                        <span class="hide-menu">Management</span>
                     </li>
                     <li class="sidebar-item">
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                            <i class="mdi mdi-av-timer"></i>
-                            <span class="hide-menu">Dashboard </span>
+                            <i class="fas fa-users"></i>
+                            <span class="hide-menu">Users</span>
                             <span class="badge badge-pill badge-info ml-auto m-r-15">3</span>
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
-                                <a href="index.html" class="sidebar-link">
-                                    <i class="mdi mdi-adjust"></i>
-                                    <span class="hide-menu"> Classic </span>
+                                <a href="" class="sidebar-link">
+                                    <i class="fas fa-pencil-alt"></i>
+                                    <span class="hide-menu"> Create new </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="index2.html" class="sidebar-link">
-                                    <i class="mdi mdi-adjust"></i>
-                                    <span class="hide-menu"> Analytical </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="index3.html" class="sidebar-link">
-                                    <i class="mdi mdi-adjust"></i>
-                                    <span class="hide-menu"> Modern </span>
+                                <a href="" class="sidebar-link">
+                                    <i class="fas fa-eye"></i>
+                                    <span class="hide-menu"> View All </span>
                                 </a>
                             </li>
                         </ul>
@@ -383,31 +377,31 @@
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
-                                <a href="sidebar-type-minisidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-quilt"></i>
                                     <span class="hide-menu"> Minisidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="sidebar-type-iconsidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-parallel"></i>
                                     <span class="hide-menu"> Icon Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="sidebar-type-overlaysidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-day"></i>
                                     <span class="hide-menu"> Overlay Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="sidebar-type-fullsidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-array"></i>
                                     <span class="hide-menu"> Full Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="sidebar-type-horizontalsidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-module"></i>
                                     <span class="hide-menu"> Horizontal Sidebar </span>
                                 </a>
@@ -421,49 +415,49 @@
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
-                                <a href="layout-inner-fixed-left-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-format-align-left"></i>
                                     <span class="hide-menu"> Inner Fixed Left Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="layout-inner-fixed-right-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-format-align-right"></i>
                                     <span class="hide-menu"> Inner Fixed Right Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="layout-inner-left-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-format-float-left"></i>
                                     <span class="hide-menu"> Inner Left Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="layout-inner-right-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-format-float-right"></i>
                                     <span class="hide-menu"> Inner Right Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="page-layout-fixed-header.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-quilt"></i>
                                     <span class="hide-menu"> Fixed Header </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="page-layout-fixed-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-parallel"></i>
                                     <span class="hide-menu"> Fixed Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="page-layout-fixed-header-sidebar.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-column"></i>
                                     <span class="hide-menu"> Fixed Header &amp; Sidebar </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="page-layout-boxed-layout.html" class="sidebar-link">
+                                <a href="" class="sidebar-link">
                                     <i class="mdi mdi-view-carousel"></i>
                                     <span class="hide-menu"> Box Layout </span>
                                 </a>
@@ -495,10 +489,8 @@
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">dashboard</li>
                             </ol>
                         </nav>
                     </div>
@@ -874,7 +866,7 @@
 <!-- ============================================================== -->
 <script src="{{ asset('Panel/assets/libs/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap tether Core JavaScript -->
-<script src="{{ asset('Panel/assets/libs/popper.js')}}/dist/umd/popper.min.js')}}"></script>
+<script src="{{ asset('Panel/assets/libs/popper/dist/umd/popper.min.js')}}"></script>
 <script src="{{ asset('Panel/assets/libs/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- apps -->
 <script src="{{ asset('Panel/dist/js/app.min.js')}}"></script>

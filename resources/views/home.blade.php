@@ -8,40 +8,69 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    {{--alert component--}}
+                    <x-alert />
 
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <form action="{{ route('album.store') }}" method="post" enctype="multipart/form-data">
-                                    @csrf
+                                {{-- form component --}}
+                                <x-form action="{{ route('album.store') }}" method="post" enctype="multipart/form-data">
                                     <div class="my-2">
-                                        <label for="title">title</label>
-                                        <input type="text" name="title" id="title" class="form-control" value="{{ old('title') }}">
+                                        {{-- label component --}}
+                                        <x-label for="title">Title</x-label>
+                                        {{-- input component --}}
+                                        <x-input 
+                                            type="text"
+                                            name="title"
+                                            id="title"
+                                            value="{{ old('title') }}"
+                                            placeholder="Title ..."
+                                        />
                                     </div>
                                     <div class="my-2">
-                                        <label for="description">description</label>
-                                        <textarea name="description" id="description" cols="30" rows="5" class="form-control">{{ old('description') }}</textarea>
+                                        {{-- label component --}}
+                                        <x-label for="description">Description</x-label>
+                                        {{-- textarea component --}}
+                                        <x-textarea 
+                                            name="description"
+                                            id="description"
+                                            cols="10"
+                                            rows="10">
+                                            {{ old('description') }}
+                                        </x-textarea>
                                     </div>
                                     <div class="my-2">
-                                        <label for="image">image</label>
-                                        <input type="file" name="image" id="image" class="form-control">
+                                        {{-- label component --}}
+                                        <x-label for="image">Image</x-label>
+                                        {{-- input component --}}
+                                        <x-input 
+                                            type="file"
+                                            name="image"
+                                            id="image"
+                                            value="{{ old('image') }}"
+                                            placeholder="select your image" 
+                                        />
+
                                     </div>
                                     <div class="my-3">
-                                        <label for="is_status">is status</label>
-                                        <select name="is_status" id="is_status" class="form-control form-selete">
+                                        {{-- label component --}}
+                                        <x-label for="is_status">
+                                            Is Status
+                                        </x-label>
+                                        {{-- select box component --}}
+                                        <x-select name="is_status" id="is_status">
                                             <option value="0">DeActive</option>
                                             <option value="1">Active</option>
-                                        </select>
+                                        </x-select>
                                     </div>
                                     <div class="my-3">
-                                        <button class="btn btn-md btn-outline-primary">Submit</button>
+                                        {{-- button component --}}
+                                        <x-button class="btn-outline-primary" type="submit">
+                                            submit
+                                        </x-button>
                                     </div>
-                                </form>
+                                </x-form>
                             </div>
                         </div>
                     </div>
