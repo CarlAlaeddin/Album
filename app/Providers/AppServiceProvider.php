@@ -13,6 +13,7 @@ use App\View\Components\Backend\Forms\Label;
 use App\View\Components\Backend\Button;
 use App\View\Components\Admin\Breadcrumb;
 use App\View\Components\Admin\Link;
+use App\View\Components\Backend\Error;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
@@ -42,5 +43,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('breadcrumb-item',BreadcrumbItem::class);
         Blade::component('breadcrumb-title',BreadcrumbTitle::class);
         Blade::component('link',Link::class);
+        Blade::component('error',Error::class);
+
     }
 }

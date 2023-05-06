@@ -1,9 +1,9 @@
 @props([
     'action',
     'method',
-    'enctype'
+    'enctype' => null
 ])
-<form action="{{ $action }}" method="{{ $method }}" enctype="{{ $enctype }}">
+<form action="{{ $action }}" method="{{ $method }}" {{ $attributes->merge(['enctype' => '']) }}>
     @csrf
     {{ $slot }}
 </form>

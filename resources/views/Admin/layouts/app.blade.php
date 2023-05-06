@@ -353,113 +353,18 @@
                         <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
                             <i class="fas fa-users"></i>
                             <span class="hide-menu">Users</span>
-                            <span class="badge badge-pill badge-info ml-auto m-r-15">3</span>
                         </a>
                         <ul aria-expanded="false" class="collapse  first-level">
                             <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
+                                <a href="{{ route('admin.user.create') }}" class="sidebar-link">
                                     <i class="fas fa-pencil-alt"></i>
                                     <span class="hide-menu"> Create new </span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
+                                <a href="{{ route('admin.user.index') }}" class="sidebar-link">
                                     <i class="fas fa-eye"></i>
                                     <span class="hide-menu"> View All </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                            <i class="mdi mdi-tune"></i>
-                            <span class="hide-menu">Sidebar Type </span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-quilt"></i>
-                                    <span class="hide-menu"> Minisidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-parallel"></i>
-                                    <span class="hide-menu"> Icon Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-day"></i>
-                                    <span class="hide-menu"> Overlay Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-array"></i>
-                                    <span class="hide-menu"> Full Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-module"></i>
-                                    <span class="hide-menu"> Horizontal Sidebar </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
-                            <i class="mdi mdi-crop-square"></i>
-                            <span class="hide-menu">Page Layouts </span>
-                        </a>
-                        <ul aria-expanded="false" class="collapse  first-level">
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-format-align-left"></i>
-                                    <span class="hide-menu"> Inner Fixed Left Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-format-align-right"></i>
-                                    <span class="hide-menu"> Inner Fixed Right Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-format-float-left"></i>
-                                    <span class="hide-menu"> Inner Left Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-format-float-right"></i>
-                                    <span class="hide-menu"> Inner Right Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-quilt"></i>
-                                    <span class="hide-menu"> Fixed Header </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-parallel"></i>
-                                    <span class="hide-menu"> Fixed Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-column"></i>
-                                    <span class="hide-menu"> Fixed Header &amp; Sidebar </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="" class="sidebar-link">
-                                    <i class="mdi mdi-view-carousel"></i>
-                                    <span class="hide-menu"> Box Layout </span>
                                 </a>
                             </li>
                         </ul>
